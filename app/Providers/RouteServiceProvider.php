@@ -32,6 +32,10 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
+            // create costtum api route
+            Route::middleware('api')
+                ->prefix('product')
+                ->group(base_path('routes/products-api.php'));
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));

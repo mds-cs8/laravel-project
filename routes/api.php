@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// add route
+Route::post("/", [BookController::class, "index"]);
+
+// show all books
+Route::get("/show-all", [BookController::class, "showAll"]);
+Route::get("/show-by-name/{book_name}", [BookController::class, "showByName"]);
