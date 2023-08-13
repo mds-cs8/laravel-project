@@ -12,6 +12,7 @@ class UserCntroller extends Controller
 {
     public function signUp(Request $req){
 
+        // check req
         $inputs = $req->validate([
             'name'=> 'required|string|max:20',
             'email'=> 'required|string|unique:users,email',
@@ -21,10 +22,10 @@ class UserCntroller extends Controller
         $user = User::create([
             'name'=>$inputs['name'],
             'email'=>$inputs['email'],
-            'password'=> bcrypt( $inputs['password']),
+            'password'=> bcrypt( $inputs['password']), // crypt password
         ]);
 
-        $token = $user->createToken('userToken')->plainTextToken;
+        $token = $user->createToken('userToken')->plainTextToken; // create token
 
         $res = [
             'user'=>$user,

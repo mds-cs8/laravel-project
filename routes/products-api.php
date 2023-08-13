@@ -29,8 +29,8 @@ Route::get('search/{name}', [ProductController::class, 'search']); // SHOW ITEM 
 // ----------------------------------PROTECTED ROUTE----------------------------------------------
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
-    Route::post("add-item", [ProductController::class, "store"]);
-    Route::put("/edit/{id}", [ProductController::class, "update"]);
-    Route::delete("/delete/{id}", [ProductController::class, "destroy"]);
+    Route::post("add-item", [ProductController::class, "store"]); // add item
+    Route::put("/edit/{id}", [ProductController::class, "update"]); // update item
+    Route::delete("/delete/{id}", [ProductController::class, "destroy"]); // delete it
 });
 // ----------------------------------PROTECTED ROUTE----------------------------------------------
